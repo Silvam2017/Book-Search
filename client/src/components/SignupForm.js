@@ -7,6 +7,7 @@ import { createUser } from '../utils/API';
 import Auth from '../utils/auth';
 
 const SignupForm = () => {
+  const [addUser, { error }] = useMutation(ADD_USER);
   // set initial form state
   const [userFormData, setUserFormData] = useState({ username: '', email: '', password: '' });
   // set state for form validation
@@ -30,15 +31,16 @@ const SignupForm = () => {
     }
 
     try {
-      const response = await createUser(userFormData);
+      //pass variables (data from signup form) as data
+      const { data } = await addUser({
+        variables: {...userFormData}
+      });
 
-      if (!response.ok) {
-        throw new Error('something went wrong!');
+      if (error) {
+        throw new Error('Please try again.');
       }
 
-      const { token, user } = await response.json();
-      console.log(user);
-      Auth.login(token);
+      Auth.login(data.addUser.token);
     } catch (err) {
       console.error(err);
       setShowAlert(true);
