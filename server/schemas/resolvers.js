@@ -41,7 +41,7 @@ Mutation: {
  },
  saveBook: async (parent, {input}, context) => {
      if (context.user) {
-         const updatedUser = await User.findByIdAndUpdate(
+         const updatedUser = await User.findOneAndUpdate(
             { _id: context.user._id },
             { $addToSet: { savedBooks: input } },
             { new: true, runValidators: true }
@@ -53,7 +53,7 @@ Mutation: {
  deleteBook: async (parent,args, context) => {
      if(context.user) {
       const updatedUser = await User.findOneAndUpdate(
-        { _id: user._id },
+        { _id: context.user._id },
         { $pull: { savedBooks: { bookId: args.bookId } } },
         { new: true }
       );
