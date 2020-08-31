@@ -11,7 +11,7 @@ export const LOGIN_USER =gql`
         savedBooks {
           bookId
           title
-          authors
+          autho
           description
           image
           link
@@ -32,7 +32,7 @@ export const ADD_USER =gql`
         savedBooks {
           bookId
           title
-          authors
+          author
           description
           image
           link
@@ -51,7 +51,7 @@ export const SAVE_BOOK =gql`
       savedBooks {
         bookId
         title
-        authors
+        author
         description
         image
         link
@@ -70,7 +70,7 @@ export const REMOVE_BOOK = gql`
       savedBooks {
         bookId
         title
-        authors
+        author
         description
         image
         link
