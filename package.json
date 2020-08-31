@@ -18,9 +18,11 @@
   "author": "",
   "license": "ISC",
   "dependencies": {
-    "if-env": "^1.0.4"
+    "if-env": "^1.0.4",
+    "apollo-server-express": "^2.16.1"
   },
   "devDependencies": {
     "concurrently": "^5.2.0"
-  }
+  },
+  "homepage": "https://github.com/Silvam2017/Book-Search#readme"
 }
