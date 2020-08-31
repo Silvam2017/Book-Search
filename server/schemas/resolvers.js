@@ -1,7 +1,6 @@
-const { User, Book } = require('../models');
+const { User } = require('../models');
 const { AuthenticationError } =  require('apollo-server-express');
 const { signToken } = require('../utils/auth');
-const { update } = require('../models/User')
 
 const resolvers = {
     Query: {
@@ -24,7 +23,7 @@ const resolvers = {
             return { token, user };
         },
         login: async (parent, { email, password }) => {
-            const user = await User.findOne({ email });
+            const user = await User.findOne({email});
 
             if (!user) {
                 throw new AuthenticationError("Can't find this user");
@@ -38,7 +37,7 @@ const resolvers = {
 
             return { token, user };
         },
-        saveBook: async (parent, args, context) => {
+        saveBook: async (parent, {input}, context) => {
             if(context.user) {
                 const updatedUser = await User.findOneAndUpdate(
                    { _id: user._id },
