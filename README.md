@@ -4,7 +4,7 @@
 
 ![NPM](https://img.shields.io/npm/l/inquirer?style=plastic)
 
-# Project Name:  Note Taker
+# Project Name:  Book Search
 
 ## Live Link
 [Website](https://fast-taiga-68334.herokuapp.com/)
